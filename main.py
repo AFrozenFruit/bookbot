@@ -15,17 +15,23 @@ def count_characters(book):
 
 
         file_contents = file_contents.lower()
-        for letter in file_contents:
-            if letter in characters:
-                characters[letter] += 1
-            else:
-                characters[letter] = 1
+        for letter in file_contents:            
+            if letter.isalpha():
+                if letter in characters:
+                    characters[letter] += 1
+                else:
+                    characters[letter] = 1
         return characters
     
+
             
+test = "books/Frankenstein.txt"
+count = count_words(test)
+# print(count)
 
-count = count_words("books/Frankenstein.txt")
-print(count)
+count = count_characters(test)
 
-count = count_characters("books/Frankenstein.txt")
-print(count)
+# sort the directory
+count = {k: v for k, v in sorted(count.items(), key=lambda item: item[1], reverse=True)}
+for k,v in count.items():
+    print(f"The {k} was found {v} times")
