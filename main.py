@@ -27,7 +27,7 @@ def count_characters(book):
             
 test = "books/Frankenstein.txt"
 count = count_words(test)
-# print(count)
+print(f"{count} words found in the document")
 
 count = count_characters(test)
 
